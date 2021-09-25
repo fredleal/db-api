@@ -1,16 +1,24 @@
 {
      "data" : [ 
          {
-             
+             "title": "a Corebiz atua em toda jornada digital do usuário.",
+             "imgUrl": "https://raw.githubusercontent.com/fredleal/db-api/main/img/imagem1.jpg",
+             "thumbUrl":"https://raw.githubusercontent.com/fredleal/db-api/main/thumbs/imagem1-thumbs.png"
          },
          {
-
+            "title": "culpa odio esse rerum ",
+            "imgUrl": "https://raw.githubusercontent.com/fredleal/db-api/main/img/imagem2.jpg",
+            "thumbUrl":"https://raw.githubusercontent.com/fredleal/db-api/main/thumbs/imagem2-thumbs.png"
          },
          {
-
+            "title": "reprehenderit est deserunt velit",
+            "imgUrl": "https://raw.githubusercontent.com/fredleal/db-api/main/img/imagem3.jpg",
+            "thumbUrl":"https://raw.githubusercontent.com/fredleal/db-api/main/thumbs/imagem3-thumbs.png"
          },
          {
-             
+            "title": "officia porro iure quia iusto qui",
+            "imgUrl": "https://raw.githubusercontent.com/fredleal/db-api/main/img/imagem4.jpg",
+            "thumbUrl":"https://raw.githubusercontent.com/fredleal/db-api/main/thumbs/imagem4-thumbs.png"
          }
      ]
 }
