@@ -561,3 +561,83 @@ Quando tiver duvida de como algo deveria ser, consulte esses arquivos:
 | Como exportar componentes | `template-saas-ecommerce/src/components/atoms/index.ts` |
 | Como fazer accordion | `template-saas-ecommerce/src/components/organisms/FAQSection/FAQSection.tsx` |
 | Como fazer props tipadas | `template-saas-ecommerce/src/components/atoms/Badge/Badge.tsx` |
+
+---
+
+## PARTE 7 — AUTO-AVALIACAO DO TRABALHO
+
+> Depois de executar TODAS as partes (1-6), avalie a qualidade do seu proprio trabalho.
+> Preencha a tabela abaixo com honestidade. A nota deve refletir o que REALMENTE foi feito, nao o que voce pretendia fazer.
+
+### Como dar a nota
+
+Para CADA criterio, siga a rubrica. Nao "arredonde pra cima". Se fez 80% dos arquivos, a nota e 8, nao 9.
+
+| Nota | Significado |
+|---|---|
+| **10** | Perfeito. 100% dos itens verificados, zero item pulado, zero afirmacao sem evidencia, relatorio completo com arquivo:linha em todos os achados |
+| **9** | Excelente. 95%+ verificado, no maximo 1-2 itens com evidencia incompleta, relatorio quase completo |
+| **8** | Bom. 85%+ verificado, alguns itens sem arquivo:linha, relatorio tem gaps menores |
+| **7** | Aceitavel. 70%+ verificado, varias afirmacoes genericas sem especificar arquivo, relatorio incompleto |
+| **6** | Insuficiente. Menos de 70% verificado, ou afirmacoes sem evidencia, ou itens pulados sem justificativa |
+| **≤5** | Falhou. Pulou partes inteiras, inventou dados, ou nao seguiu o checklist |
+
+### Criterios de avaliacao
+
+Preencha esta tabela no final do relatorio:
+
+```markdown
+## Auto-avaliacao
+
+| # | Criterio | Referencia de qualidade | Nota (1-10) | Justificativa |
+|---|---|---|---|---|
+| 1 | **Cobertura de arquivos** | Todos os 48 arquivos alterados foram verificados individualmente? Nenhum pulado? | ___ | ___ |
+| 2 | **Evidencia concreta** | Todo achado tem `arquivo:linha`? Nenhuma afirmacao generica tipo "em varios componentes"? | ___ | ___ |
+| 3 | **Precisao de classificacao Atomic** | Cada componente foi classificado corretamente (atomo/molecula/organismo) com justificativa baseada em imports e composicao? Ref: Brad Frost "Atomic Design" — atomo = elemento HTML unico, molecula = grupo de atomos, organismo = secao completa com logica | ___ | ___ |
+| 4 | **Deteccao de CSS redundante** | Encontrou TODAS as 4 formas de declaracao (hex hardcoded, style objects, constantes exportadas, tokens duplicados)? Usou regex/grep real, nao olho? Ref: Tailwind docs "Reusing Styles" — unica forma correta e className com utility classes | ___ | ___ |
+| 5 | **Qualidade das correcoes sugeridas** | Cada problema tem uma correcao especifica (nao generica)? A correcao segue o padrao var(--token, #fallback)? Ref: MDN CSS Custom Properties + Tailwind "Arbitrary Values" | ___ | ___ |
+| 6 | **Padrao de variant/size classes** | Verificou se CADA componente com variantes usa objeto de classes Tailwind (nao ternario com style)? Ref: template-saas-ecommerce Button.tsx, Badge.tsx — variantClasses como objeto, sizeClasses como objeto, combinados em template literal | ___ | ___ |
+| 7 | **Naming e estrutura de pastas** | Verificou PascalCase, pasta por componente, named exports, barrel files? Ref: React community convention (PascalCase) + template-saas-ecommerce atoms/index.ts | ___ | ___ |
+| 8 | **TypeScript e props** | Verificou interfaces exportadas, tipos explicitos (sem `any`), defaults no destructuring? Ref: TypeScript Handbook "Interfaces" + React TypeScript Cheatsheet | ___ | ___ |
+| 9 | **Completude do relatorio** | O relatorio da Parte 6 esta completo? Todas as tabelas preenchidas? Resumo com numeros reais? Prioridade de correcao definida? | ___ | ___ |
+| 10 | **Disciplina anti-alucinacao** | Seguiu as 8 regras? Nao inventou arquivo, nao assumiu padrao sem buscar, nao corrigiu codigo, nao agrupou achados? | ___ | ___ |
+
+### Media final: ___ / 10
+```
+
+### Regras da auto-avaliacao
+
+1. **Nota sem justificativa nao vale.** Se der 9, explique por que nao e 10. Se der 7, explique o que faltou.
+2. **A justificativa deve citar exemplos concretos.** "Verifiquei todos" nao e justificativa. "Verifiquei 48/48 arquivos, listados na secao X do relatorio" e.
+3. **Se a media for menor que 8, liste o que faria diferente** pra chegar a 9+ numa segunda rodada.
+4. **Se a media for 9+, liste 1-2 melhorias residuais** que fariam chegar a 10.
+5. **NAO infle a nota.** E melhor dar 7 honesto com plano de melhoria do que dar 9 inventado. O humano vai conferir.
+
+### Referencias de boas praticas usadas na avaliacao
+
+| Referencia | O que valida | Onde aplicar |
+|---|---|---|
+| **Brad Frost — Atomic Design** (bradfrost.com/blog/post/atomic-web-design) | Classificacao atomo/molecula/organismo. Atomo = indivisivel, molecula = grupo funcional, organismo = secao com identidade | Criterio 3 |
+| **Tailwind CSS — Reusing Styles** (tailwindcss.com/docs/reusing-styles) | Utility classes como unica forma de estilizar. Sem CSS-in-JS, sem style objects, sem constantes de cor | Criterio 4 |
+| **MDN — CSS Custom Properties** (developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) | `var(--token, fallback)` como padrao. Fallback obrigatorio. Definicao em `:root` | Criterio 5 |
+| **Tailwind CSS — Arbitrary Values** (tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) | Sintaxe `bg-[var(--color-X,#hex)]` pra integrar CSS vars com Tailwind | Criterio 5, 6 |
+| **React TypeScript Cheatsheet** (react-typescript-cheatsheet.netlify.app) | Props interfaces, named exports, generics em componentes | Criterio 8 |
+| **template-saas-ecommerce** (repo local de referencia) | Pattern completo: tokens em CSS, Tailwind config, variant/size objects, composicao Atomic | Criterios 3-8 |
+| **Clean Code (Robert C. Martin)** — naming | PascalCase pra componentes, camelCase pra variaveis, nomes descritivos | Criterio 7 |
+| **SOLID — Single Responsibility** | Cada componente faz uma coisa. Atomo nao compoe, molecula nao tem logica de pagina | Criterio 3 |
+
+### Exemplo de auto-avaliacao nota 9
+
+```
+| 1 | Cobertura de arquivos | 9 | 47/48 verificados. Arquivo X.tsx nao foi encontrado no path indicado — pode ter sido renomeado. |
+| 4 | Deteccao de CSS redundante | 9 | Encontrei 23 hex hardcoded, 8 style objects, 3 constantes. Usei grep com regex. Posso ter perdido hex dentro de template literals complexas. |
+| 10 | Disciplina anti-alucinacao | 10 | Nenhum arquivo inventado. Todos os achados com path:linha. 2 itens marcados como DUVIDA pro humano. |
+```
+
+### Exemplo de auto-avaliacao nota 6 (honesta)
+
+```
+| 1 | Cobertura de arquivos | 6 | Verifiquei 30/48. Pulei os 18 da pasta organisms/ por limite de contexto. |
+| 5 | Qualidade das correcoes | 6 | Algumas correcoes sao genericas ("usar Tailwind"). Faltou especificar a classe exata de substituicao. |
+| 10 | Disciplina anti-alucinacao | 7 | Em 3 achados nao especifiquei a linha exata, apenas o arquivo. |
+```
