@@ -6,13 +6,19 @@ Pasta pronta pra enviar. Envie por **email corporativo → corporativo** (um ema
 
 ## No PC de trabalho
 
-### 1. `local-only/gemini-context.md` — **NUNCA subir em lugar nenhum**
+### 1. `local-only/` — **3 arquivos, NUNCA subir em lugar nenhum**
 
-- Salvar em `%USERPROFILE%\Documents\gemini-context.md`
-- Este arquivo tem o aviso `⚠️ LOCAL ONLY` na primeira linha
-- **Nunca**: importar no Notion, subir no Drive, anexar em emails, compartilhar
-- Uso: colar inteiro no início de cada sessão Gemini (CLI ou Chat)
-- Alternativa: salvar como Gem customizada se a 3C tiver Gemini Workspace
+Todos os arquivos desta pasta tem `⚠️ LOCAL ONLY` na primeira linha.
+**Nunca**: importar no Notion, subir no Drive, anexar em emails, compartilhar.
+
+| Arquivo | O que é | Como usar |
+|---|---|---|
+| `gemini-context.md` | Contexto de documentação pro Gemini | Colar no início de cada sessão Gemini (CLI ou Chat) pra gerar docs (Daily, ADR, BR, etc) |
+| `compre-e-ganhe-migration-context.md` | Plano da migração Builder.io → Next.js | Colar no início da sessão do agente quando trabalhar na migração do Compre e Ganhe |
+| `css-review-checklist.md` | Checklist de revisão de CSS + Atomic Design | Colar quando precisar auditar/padronizar componentes. Complementa o migration-context |
+
+- Salvar todos em `%USERPROFILE%\Documents\` (local only)
+- Alternativa pro gemini-context: salvar como Gem customizada se a 3C tiver Gemini Workspace
 
 ### 2. `notion-import/` — importar no Notion corporativo
 
@@ -30,7 +36,7 @@ Pasta pronta pra enviar. Envie por **email corporativo → corporativo** (um ema
 
 ---
 
-## O que tem aqui (9 arquivos pro Notion + 1 local)
+## O que tem aqui (9 arquivos pro Notion + 3 locais)
 
 ### `notion-import/` (vai pro Notion)
 ```
@@ -49,7 +55,9 @@ onboarding/
 
 ### `local-only/` (FICA NO PC, NUNCA SOBE)
 ```
-gemini-context.md               → primeiro prompt de cada sessão Gemini
+gemini-context.md                          → contexto de docs pro Gemini
+compre-e-ganhe-migration-context.md        → plano da migração Builder.io → Next.js
+css-review-checklist.md                    → auditoria de CSS + Atomic Design (complementa o migration-context)
 ```
 
 ---

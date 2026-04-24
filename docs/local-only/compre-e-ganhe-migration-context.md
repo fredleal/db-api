@@ -81,9 +81,59 @@ src/
 
 ---
 
+## Convencao de CSS — fonte unica de verdade
+
+> **CRITICO**: este projeto ja teve problemas com 4 padroes de CSS diferentes criados por agentes distintos. A regra abaixo e obrigatoria. Para auditoria detalhada, ver `css-review-checklist.md`.
+
+### Fluxo unico
+
+```
+CSS Custom Properties em :root (fonte da verdade)
+        ↓
+  tailwind.config consome as vars
+        ↓
+  className no JSX (UNICO lugar onde estilo aparece)
+```
+
+### NUNCA fazer (em nenhum componente)
+
+- Hex hardcoded em `.tsx`: `color: '#3b82f6'` ou `bg-[#3b82f6]`
+- Objeto JS com estilo: `style={{ background: primary }}` ou `style={variantStyle}`
+- Constante exportada com cores: `export const primaryColor = '#e63946'`
+- Ternario com style objects: `variant === 'solid' ? { background: x } : { background: y }`
+
+### SEMPRE fazer
+
+- Cores via CSS var com fallback: `bg-[var(--color-primary-500,#3b82f6)]`
+- Variants como objeto de classes Tailwind:
+```tsx
+const variantClasses = {
+  solid: 'bg-[var(--color-primary-500,#3b82f6)] text-white',
+  outline: 'border border-[var(--color-primary-500,#3b82f6)]',
+}
+```
+- Sizes como objeto de classes Tailwind:
+```tsx
+const sizeClasses = {
+  sm: 'px-3 py-2 text-sm',
+  md: 'px-4 py-2.5 text-base',
+  lg: 'px-6 py-3 text-lg',
+}
+```
+- Montagem final: `className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}`
+
+### Referencia de padrao correto
+
+Repo `template-saas-ecommerce` — consultar quando tiver duvida:
+- Variants: `src/components/atoms/Button/Button.tsx`
+- Sizes + error state: `src/components/atoms/Input/Input.tsx`
+- CSS vars: `src/design-system/themes/base.css`
+
+---
+
 ## Convencoes tecnicas
 
-- **Styling**: seguir o padrao que o repo Mercafe ja usa (Tailwind, CSS Modules, styled-components — verificar antes de comecar)
+- **Styling**: CSS vars + Tailwind classes (ver secao acima). Nunca CSS Modules, nunca styled-components, nunca style inline
 - **TypeScript**: strict mode
 - **Componentes**: reusar existentes do Mercafe antes de criar novos
 - **JSON content**: conteudo das paginas vive em `content/compre-e-ganhe/` — separado dos componentes

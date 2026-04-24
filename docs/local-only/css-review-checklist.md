@@ -2,6 +2,8 @@
 
 > ⚠️ **LOCAL ONLY** — NUNCA importar no Notion, Drive ou qualquer sistema compartilhado.
 >
+> **Complementa**: `compre-e-ganhe-migration-context.md` (plano da migracao). Use este checklist pra auditar e padronizar os componentes criados durante a migracao.
+>
 > **Para o agente**: Execute CADA checkbox como uma tarefa isolada. NAO pule etapas.
 > NAO invente solucoes. Se nao sabe, pare e pergunte.
 > Cada checkbox e uma micro-tarefa. Execute uma por vez, confirme o resultado, siga pra proxima.
